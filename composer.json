@@ -1,0 +1,21 @@
+{
+  "name": "wangqs/querylist-rule-iask",
+  "description": "QueryList Plugin: Iask searcher. QueryList新浪爱问搜索插件",
+  "require": {
+    "PHP": ">=7.0"
+  },
+  "require-dev": {
+    "jaeger/querylist": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "QL\\Ext\\": ""
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "wangqs"
+    }
+  ]
+}
