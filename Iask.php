@@ -18,7 +18,6 @@
 		protected $httpOpt = [
 			'headers' => [
 				'User-Agent'      => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36' ,
-				'Accept-Encoding' => 'gzip, deflate, br' ,
 			]
 		];
 		const API = 'https://iask.sina.com.cn/search';
@@ -53,7 +52,7 @@
 
 			$encode = urlencode( $keyword );
 
-			$this->httpOpt['headers']['referer'] = "https://iask.sina.com.cn/search?searchWord={$encode}&record=1";
+			$this->httpOpt['headers']['referer'] = "https://iask.sina.com.cn/search?searchWord={$encode}&page=1";
 
 			return $this;
 		}
