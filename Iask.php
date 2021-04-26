@@ -43,7 +43,8 @@
 		}
 
 		public function setHttpOpt ( array $httpOpt = [] ) {
-			$this->httpOpt = $httpOpt;
+			if ( count( $httpOpt ) )
+				$this->httpOpt = array_merge( $this->httpOpt , $httpOpt );
 			return $this;
 		}
 
