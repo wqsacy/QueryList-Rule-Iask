@@ -69,7 +69,7 @@
 		public function getCount () {
 			$count = 0;
 			$text = $this->query( 1 )
-			             ->find( '.nums' )
+			             ->find( '.search-result' )
 			             ->text();
 			if ( preg_match( '/[\d,]+/' , $text , $arr ) ) {
 				$count = str_replace( ',' , '' , $arr[0] );
