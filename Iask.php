@@ -58,12 +58,16 @@
 		}
 
 		public function page ( $page = 1 , $realURL = false ) {
-			return $this->query( $page )
-			            ->query()
-			            ->getData( function ( $item ) use ( $realURL )
-			            {
-				            return $item;
-			            } );
+			try {
+				return $this->query( $page )
+				            ->query()
+				            ->getData( function ( $item ) use ( $realURL )
+				            {
+					            return $item;
+				            } );
+			} catch ( \Exception $e ) {
+				return [];
+			}
 		}
 
 		public function getCount () {
@@ -84,11 +88,15 @@
 		}
 
 		protected function query ( $page = 1 ) {
-			$this->ql->get( self::API , [
-				'searchWord' => $this->keyword ,
-				'page'       => $page
-			] , $this->httpOpt );
-			return $this->ql;
+			try {
+				$this->ql->get( self::API , [
+					'searchWord' => $this->keyword ,
+					'page'       => $page
+				] , $this->httpOpt );
+				return $this->ql;
+			} catch ( \Exception $e ) {
+				return $this->ql;
+			}
 		}
 
 	}
