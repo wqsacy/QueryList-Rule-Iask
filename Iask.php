@@ -23,7 +23,8 @@
 		const API = 'https://iask.sina.com.cn/search';
 		const RULES = [
 			'title' => [ '.title-text' , 'text' ] ,
-			'link'  => [ '.title-text a' , 'href' ]
+			'link'  => [ '.title-text a' , 'href' ],
+			'best_answer' => ['.list-text','text']
 		];
 		const RANGE = '.iask-search-list li';
 
@@ -63,6 +64,10 @@
 				            ->query()
 				            ->getData( function ( $item ) use ( $realURL )
 				            {
+					            if ( isset( $item['best_answer'] ) && $item['best_answer'] ) {
+						            $item['best_answer'] = str_replace('答：','',$item['best_answer']);
+					            }
+					            
 					            return $item;
 				            } );
 			} catch ( \Exception $e ) {
